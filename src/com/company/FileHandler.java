@@ -35,8 +35,36 @@ public class FileHandler {
         return null;
     }
 
+    public void readTheWholeThing(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName));) {
+            String line = br.readLine();
+            while (line != null){
+                System.out.println(line);
+                line = br.readLine();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public static void writeLineAt(String fileName, String data, int start) {
+    private static ArrayList makeArray(String fileName) {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName));) {
+            ArrayList<String> data = new ArrayList<>();
+            String line = br.readLine();
+            while (line != null){
+                data.add(line);
+                line = br.readLine();
+            }
+            return data;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void writeLineAt(String fileName, String toAdd, int start) {
         // overwrite a line from position "start" in the file
         // doesn't check that the start position is actually
         // the beginning of the file. This will not behave well
@@ -44,33 +72,19 @@ public class FileHandler {
 
         // use random file access instead of buffered reader
 
+        ArrayList<String> data = FileHandler.makeArray(fileName);
+        data.add(start, toAdd);
 
 
-        try (PrintWriter pw = new PrintWriter(new FileWriter(fileName)); RandomAccessFile rf = new RandomAccessFile(fileName, "rws"); BufferedReader br = new BufferedReader(new FileReader(fileName));){
-            ArrayList<String> contents = new ArrayList();
-            int count = 0;
-            String line = rf.readLine();
-
-
-
-            while (line != null){
-                contents.add(count, line);
-                line = br.readLine();
-                count++;
-
-            }
-
-            contents.add(start, data);
-            count++;
+        try {
+            FileWriter fw = new FileWriter(fileName);
+            PrintWriter pw = new PrintWriter(fw);
+                //RandomAccessFile rf = new RandomAccessFile(fileName, "rws");
 
 
 
-            for (int i =0; i<contents.size(); i++){
-                pw.println(contents.get(i));
-            }
-
-
-
+            for (int i =0; i<data.size(); i++)
+                pw.println(data.get(i));
 
         } catch (IOException e) {
             e.printStackTrace();
