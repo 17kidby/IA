@@ -1,11 +1,6 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,9 +20,10 @@ public class FileHandler {
 
     public static String readLineAt(String fileName, int start) {
         // grab the line from position "start" in the file
-        try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
+        try (RandomAccessFile rf = new RandomAccessFile(fileName, "r")) {
             rf.seek(start);
-            return rf.readLine();
+            String read = rf.readLine();
+            return read;
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -35,7 +31,21 @@ public class FileHandler {
         return null;
     }
 
-    public void readTheWholeThing(String fileName) {
+    public static String readLine(String fileName, int lineStart){
+        String read = "";
+        try (RandomAccessFile rf = new RandomAccessFile(fileName, "r")) {
+            for(int i=0; i<lineStart; i++){
+                rf.readLine();
+            }
+            return rf.readLine();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void readTheWholeThing(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName));) {
             String line = br.readLine();
             while (line != null){
