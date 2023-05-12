@@ -27,7 +27,7 @@ public class Main {
         System.out.println("List of plants: ");
 
         for (int i=0; i<FileHandler.countLines("name.txt"); i++){
-            System.out.print(FileHandler.readLine("name.txt", i) + ", ");
+            System.out.print((i+1) + ") " + FileHandler.readLine("name.txt", i) + ", ");
             System.out.print(FileHandler.readLine("location.txt", i) + ", ");
             System.out.print(FileHandler.readLine("time.txt", i) + ", ");
             System.out.print(FileHandler.readLine("colours.txt", i) + ", ");
@@ -35,11 +35,11 @@ public class Main {
         }
         System.out.println("    ");
         System.out.println("    ");
+    }
 
-
-
-
-
+    public static void removePlants(){
+        viewPlants();
+        System.out.println("Which line do you want to delete? ");
 
     }
 
@@ -82,6 +82,10 @@ public class Main {
 
             if (option.equals("3")) {
                 viewPlants();
+            }
+
+            if (option.equals("4")){
+                removePlants();
             }
 
         }
