@@ -49,11 +49,11 @@ public class Main {
 
         // test the database works
         System.out.println("Database (type 'end' to end)");
-        dataBase db = new dataBase("test.txt", 10);
-        dataBase names = new dataBase("name.txt", 10);
-        dataBase location = new dataBase("location.txt", 10);
-        dataBase time = new dataBase("time.txt", 10);
-        dataBase colours = new dataBase("colours.txt", 10);
+        dataBase db = new dataBase("test.txt");
+       // dataBase names = new dataBase("name.txt", 10);
+        //dataBase location = new dataBase("location.txt", 10);
+        //dataBase time = new dataBase("time.txt", 10);
+        //dataBase colours = new dataBase("colours.txt", 10);
        // db.appendRecord("1.ABCDEFGH");
        // db.appendRecord("2.ABCDEFGH");
        // db.appendRecord("3.ABCDEFGH");
@@ -62,9 +62,9 @@ public class Main {
        // System.out.println(db.findRecord("EBCDEFGHIJ")); // false
        // System.out.println(db.findRecord("2.ABCDEFGH")); // true
        // System.out.println("count = " + db.getRecordCount()); // 4
-        FileHandler.appendLine("test.txt", "sans");
-        FileHandler.appendLine("test.txt", "jesus");
-        FileHandler.writeLineAt("test.txt", "peor", 1);
+        db.appendRecord("sans");
+        db.appendRecord("jesus");
+        //FileHandler.writeLineAt("test.txt", "peor", 1);
 
         Scanner user = new Scanner(System.in);
         String option = "";

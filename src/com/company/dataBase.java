@@ -5,9 +5,9 @@ public class dataBase {
     private String filename;
     private int rowWidth;
 
-    public dataBase(String filename, int rowWidth) {
+    public dataBase(String filename) {
         this.filename = filename;
-        this.rowWidth = rowWidth;
+
     }
 
     // add a new record to the end of the database
@@ -19,16 +19,6 @@ public class dataBase {
         String line = FileHandler.readLineAt(filename, rows);
 
         if (line != null) {
-            if (line.length() < 10) {
-                for (int i = 0; i < 10 - line.length(); i++) {
-                    temp = temp + " ";
-                }
-
-
-            } else if (line.length() > 10) {
-                line = line.substring(0, Math.min(line.length(), 10));
-            }
-
             FileHandler.writeLineAt(filename, line + temp, rows);
             FileHandler.appendLine(filename, data);
         }

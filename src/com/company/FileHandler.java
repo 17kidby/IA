@@ -16,6 +16,7 @@ public class FileHandler {
         catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static String readLineAt(String fileName, int start) {
@@ -104,7 +105,7 @@ public class FileHandler {
 
     public static int countLines(String fileName) {
         int count = 0;
-        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
             String line = br.readLine();
             while (line != null){
                 count++;
