@@ -62,9 +62,10 @@ public class Main {
        // System.out.println(db.findRecord("EBCDEFGHIJ")); // false
        // System.out.println(db.findRecord("2.ABCDEFGH")); // true
        // System.out.println("count = " + db.getRecordCount()); // 4
-        db.appendRecord("sans");
-        db.appendRecord("jesus");
-        //FileHandler.writeLineAt("test.txt", "peor", 1);
+        //db.appendRecord("sans");
+        //db.appendRecord("jesus");
+        FileHandler.appendLine("test.txt", "osadifj");
+        FileHandler.writeLineAt("test.txt", "peor", 1);
 
         Scanner user = new Scanner(System.in);
         String option = "";

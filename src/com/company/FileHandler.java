@@ -83,19 +83,43 @@ public class FileHandler {
 
         // use random file access instead of buffered reader
 
-        ArrayList<String> data = FileHandler.makeArray(fileName);
-        data.add(start, toAdd);
+        //ArrayList<String> data = FileHandler.makeArray(fileName);
+        //data.add(start, toAdd);
 
+        int lines = countLines(fileName);
+        String[] Data = new String[countLines(fileName) + 1];
+
+        for (int i=0; i<start; i++){
+            Data[i]=readLine(fileName, i);
+        }
+        Data[start] = toAdd;
+        for (int i=start; i<lines; i++){
+            Data[i]=readLine(fileName, i);
+        }
+
+        for (int i=0; i< Data.length; i++){
+            System.out.println(Data[i]);
+        }
+
+        boolean append = false;
 
         try {
-            FileWriter fw = new FileWriter(fileName);
-            PrintWriter pw = new PrintWriter(fw);
+            FileWriter fw = new FileWriter(fileName, append);
+            BufferedWriter bw = new BufferedWriter(fw);
                 //RandomAccessFile rf = new RandomAccessFile(fileName, "rws");
 
 
+            for (int i=0; i< Data.length; i++){
+                bw.write(Data[i]);
+                bw.newLine();
+            }
 
-            for (int i =0; i<data.size(); i++)
-                pw.println(data.get(i));
+
+            bw.flush();
+            bw.close();
+
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
