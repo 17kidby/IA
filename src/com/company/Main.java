@@ -64,8 +64,10 @@ public class Main {
        // System.out.println("count = " + db.getRecordCount()); // 4
         //db.appendRecord("sans");
         //db.appendRecord("jesus");
-        FileHandler.appendLine("test.txt", "osadifj");
-        FileHandler.writeLineAt("test.txt", "peor", 1);
+        //FileHandler.appendLine("test.txt", "osadifj");
+        System.out.println(FileHandler.countLines("test.txt"));
+        FileHandler.writeLineAt("test.txt", "qweqw", 5);
+        System.out.println(FileHandler.countLines("test.txt"));
 
         Scanner user = new Scanner(System.in);
         String option = "";

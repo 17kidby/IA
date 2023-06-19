@@ -86,20 +86,7 @@ public class FileHandler {
         //ArrayList<String> data = FileHandler.makeArray(fileName);
         //data.add(start, toAdd);
 
-        int lines = countLines(fileName);
-        String[] Data = new String[countLines(fileName) + 1];
 
-        for (int i=0; i<start; i++){
-            Data[i]=readLine(fileName, i);
-        }
-        Data[start] = toAdd;
-        for (int i=start; i<lines; i++){
-            Data[i]=readLine(fileName, i);
-        }
-
-        for (int i=0; i< Data.length; i++){
-            System.out.println(Data[i]);
-        }
 
         boolean append = false;
 
@@ -108,14 +95,44 @@ public class FileHandler {
             BufferedWriter bw = new BufferedWriter(fw);
                 //RandomAccessFile rf = new RandomAccessFile(fileName, "rws");
 
+            int lines = countLines(fileName);
+            String[] Data = new String[lines + 1];
+
+
+            for (int i=0; i<start; i++){
+                if (readLine(fileName, i)!=null) {
+                    Data[i] = readLine(fileName, i);
+                }else{
+                    Data[i] = "";
+                }
+            }
+            Data[start] = toAdd;
+            for (int i=start; i<=lines; i++){
+                if (readLine(fileName, i)!=null) {
+                    Data[i + 1] = readLine(fileName, i);
+                }else{
+                    Data[i] = "";
+                }
+            }
 
             for (int i=0; i< Data.length; i++){
-                bw.write(Data[i]);
-                bw.newLine();
+                System.out.println(Data[i]);
             }
 
 
-            bw.flush();
+            for (int i=0; i< Data.length; i++){
+
+                if (Data[i]!=null){
+                    bw.write(Data[i]+"");
+                    bw.newLine();
+                }
+
+
+
+            }
+
+
+
             bw.close();
 
 
