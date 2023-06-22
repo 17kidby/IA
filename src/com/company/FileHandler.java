@@ -12,6 +12,7 @@ public class FileHandler {
         boolean append = true;
         try (PrintWriter pr = new PrintWriter(new FileWriter(fileName, append))) {
             pr.println(data);
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -100,7 +101,7 @@ public class FileHandler {
             }
         }
         Data[start] = toAdd;
-        for (int i=start+1; i<=lines; i++){
+        for (int i=start; i<lines; i++){
             if (readLine(fileName, i)!=null) {
                 Data[i] = readLine(fileName, i);
             }else{
