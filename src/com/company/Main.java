@@ -69,9 +69,11 @@ public class Main {
         System.out.println(FileHandler.readLine("test.txt", 0));
         System.out.println(FileHandler.readLine("test.txt", 1));
         System.out.println(FileHandler.readLine("test.txt", 2));
+        System.out.println(" ");
         FileHandler.writeLineAt("test.txt", "qweqw", 1);
         FileHandler.writeLineAt("test.txt", "qweqw", 0);
         System.out.println(FileHandler.countLines("test.txt"));
+        System.out.println(" ");
 
         Scanner user = new Scanner(System.in);
         String option = "";
