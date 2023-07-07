@@ -59,6 +59,40 @@ public class dataBase {
     }
 
     public void editPlants() {
+        Scanner user = new Scanner(System.in);
+        int lineNum = fh.countLines(name);
+        String[] data = new String[lineNum];
+
+
+        viewPlants();
+        System.out.println("Which line do you want to edit? ");
+        int input = user.nextInt();
+
+        System.out.println("Which part of the line do you want to change? ");
+        System.out.println("(1) Name   (2) Location   (3) Time   (4) Colours");
+        System.out.println(fh.readLine(name, input-1) + ", " + fh.readLine(location, input-1) + ", " + fh.readLine(time, input-1) + ", " + fh.readLine(colours, input-1));
+        int inputTwo = user.nextInt();
+
+
+
+
+
+
+        if (inputTwo == 1){
+            fh.doTheEdit(name, input);
+
+        }else if (inputTwo == 2){
+            fh.doTheEdit(location, input);
+
+        }else if (inputTwo == 3) {
+            fh.doTheEdit(time, input);
+
+        }else if (inputTwo == 4) {
+            fh.doTheEdit(colours, input);
+
+        }
+
+        System.out.println("    ");
 
     }
 
@@ -77,16 +111,17 @@ public class dataBase {
         System.out.println("Main colour: ");
         fh.appendLine(colours, user.nextLine());
 
+        System.out.println("    ");
     }
 
     public void viewPlants(){
         System.out.println("List of plants: ");
-
-        for (int i=0; i<fh.countLines(name); i++){
+        int lineNum = fh.countLines(name);
+        for (int i=0; i<lineNum; i++){
             System.out.print((i+1) + ") " + fh.readLine(name, i) + ", ");
             System.out.print(fh.readLine(location, i) + ", ");
             System.out.print(fh.readLine(time, i) + ", ");
-            System.out.print(fh.readLine(colours, i) + ", ");
+            System.out.print(fh.readLine(colours, i));
             System.out.println("");
         }
         System.out.println("    ");
@@ -107,8 +142,11 @@ public class dataBase {
         fh.deleteLineAt(time, (start-1));
         fh.deleteLineAt(colours, (start-1));
 
+        System.out.println("    ");
+    }
 
-
+    public void doTest(){
+        System.out.println(fh.readLine(name, 1));
     }
 
 

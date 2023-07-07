@@ -76,6 +76,10 @@ public class Main {
                 db.removePlants();
             }
 
+
+            if (option.equals("test")){
+                db.doTest();
+            }
         }
 
 
@@ -90,3 +94,5 @@ public class Main {
 
     }
 }
+
+

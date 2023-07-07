@@ -3,6 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class FileHandler {
@@ -20,7 +21,7 @@ public class FileHandler {
 
     }
 
-    public static String readLineAt(String fileName, int start) {
+    public String readLineAt(String fileName, int start) {
         // grab the line from position "start" in the file
         try (RandomAccessFile rf = new RandomAccessFile(fileName, "r")) {
             rf.seek(start);
@@ -141,7 +142,7 @@ public class FileHandler {
     public void deleteLineAt(String fileName, int start){
 
         int lines = countLines(fileName);
-        String[] Data = new String[lines + 1];
+        String[] Data = new String[lines -1];
 
         boolean append = false;
 
@@ -153,11 +154,11 @@ public class FileHandler {
             }
         }
 
-        for (int i=start+1; i<=lines; i++){
+        for (int i=start+1; i<lines; i++){
             if (readLine(fileName, i)!=null) {
-                Data[i] = readLine(fileName, i);
+                Data[i-1] = readLine(fileName, i);
             }else{
-                Data[i] = "";
+                Data[i-1] = "";
             }
         }
 
@@ -183,15 +184,6 @@ public class FileHandler {
         }
 
 
-
-
-
-
-
-
-
-
-
     }
 
 
@@ -214,6 +206,18 @@ public class FileHandler {
         return count;
     }
 
+
+
+    public void doTheEdit(String fileName, int lineEdit){
+        Scanner user = new Scanner(System.in);
+        System.out.println("Previous Input: " + readLine(fileName, lineEdit-1));
+        deleteLineAt(fileName,lineEdit-1);
+
+        System.out.print("New input: ");
+        String newInput = user.next();
+
+        writeLineAt(fileName, newInput, lineEdit-1);
+    }
 
 }
 
