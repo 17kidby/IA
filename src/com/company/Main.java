@@ -1,13 +1,12 @@
 package com.company;
 import java.io.File;
 import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+
 
 
 public class Main {
-
-
-
-
 
 
 
@@ -53,6 +52,18 @@ public class Main {
         Scanner user = new Scanner(System.in);
         String option = "";
 
+
+        //GUI TIME
+        JFrame frame = new JFrame("IA");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        GUI myGUI = new GUI(1366,768);
+
+        frame.add(myGUI);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setLocation(-7,-1);
+
+ 
         while (!option.equals("end")) {
             System.out.println("1. Add ");
             System.out.println("2. Edit");
@@ -81,10 +92,6 @@ public class Main {
                 db.doTest();
             }
         }
-
-
-
-
 
 
 
