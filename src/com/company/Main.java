@@ -8,12 +8,6 @@ import java.awt.*;
 
 public class Main {
 
-
-
-
-
-
-
     public static void main(String[] args) {
         dataBase db = new dataBase("test.txt");
 
