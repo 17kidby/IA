@@ -9,7 +9,7 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
-        dataBase db = new dataBase("test.txt");
+        //dataBase db = new dataBase("test.txt");
 
         // test the database works
         System.out.println("Database (type 'end' to end)");
@@ -40,7 +40,7 @@ public class Main {
         //System.out.println(FileHandler.countLines("test.txt"));
         //System.out.println(" ");
 
-        db.appendRecord("cheese");
+        //db.appendRecord("cheese");
 
 
         Scanner user = new Scanner(System.in);
@@ -57,7 +57,7 @@ public class Main {
         frame.setVisible(true);
         frame.setLocation(-7,-1);
 
- 
+        /*
         while (!option.equals("end")) {
             System.out.println("1. Add ");
             System.out.println("2. Edit");
@@ -85,7 +85,10 @@ public class Main {
             if (option.equals("test")){
                 db.doTest();
             }
+
+
         }
+        */
 
 
 

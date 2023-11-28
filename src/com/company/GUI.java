@@ -23,13 +23,13 @@ public class GUI extends JPanel implements ActionListener {
         buttonsPanel.setLayout(new FlowLayout());
 
         button1 = new JButton("Add");
-        button1.setBounds(0,0, 200, 80);
-        button2 = new JButton("b2");
-        button2.setBounds(0,100, 200, 80);
-        button3 = new JButton("b2");
-        button3.setBounds(0,200, 200, 80);
-        button4 = new JButton("b2");
-        button4.setBounds(0,300, 200, 80);
+        button1.setBounds(0,0, 20, 80);
+        button2 = new JButton("Edit");
+        button2.setBounds(0,100, 20, 80);
+        button3 = new JButton("View");
+        button3.setBounds(0,200, 20, 80);
+        button4 = new JButton("Delete");
+        button4.setBounds(0,300, 20, 80);
         add(button1);
         button1.addActionListener(this);
         add(button2);
@@ -38,8 +38,8 @@ public class GUI extends JPanel implements ActionListener {
         button3.addActionListener(this);
         add(button4);
         button4.addActionListener(this);
-
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\17kidby_m\\IdeaProjects\\IA\\src\\com\\company\\Royal_Standard_of_the_United_Kingdom.svg.png");
+/*
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\17kidby_m\\IdeaProjects\\IA\\src\\com\\company\\Screenshot 2023-11-28 113806.png");
         Image image = imageIcon.getImage();
 
         // Resizing the image
@@ -51,12 +51,12 @@ public class GUI extends JPanel implements ActionListener {
 
         JPanel imagePanel = new JPanel();
         imagePanel.setLayout(null); // Set the layout manager to null for manual positioning
-        label.setBounds(500, 100, newWidth, newHeight); // Set the position of the label manually
+        label.setBounds(300, 100, newWidth, newHeight); // Set the position of the label manually
         imagePanel.add(label);
-
+*/
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(buttonsPanel, BorderLayout.NORTH);
-        mainPanel.add(imagePanel, BorderLayout.CENTER);
+        //mainPanel.add(imagePanel, BorderLayout.CENTER);
 
         add(mainPanel);
 
@@ -66,10 +66,17 @@ public class GUI extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("b1")){
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        }else{
-            System.out.println("AAAAAAAAAAAAAAAAA b");
+        dataBase db = new dataBase("sabs.txt");
+        if (e.getActionCommand().equals("Add")){
+            db.addToPlant();
+        }else if (e.getActionCommand().equals("Edit")) {
+            db.editPlants();
+        }else if (e.getActionCommand().equals("View")) {
+            db.viewPlants();
+        }else if (e.getActionCommand().equals("Delete")){
+            db.removePlants();
+            JPanel easd = new JPanel(new BorderLayout());
+            add(easd);
         }
 
     }
