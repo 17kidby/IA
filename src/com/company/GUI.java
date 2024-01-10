@@ -76,6 +76,7 @@ public class GUI extends JPanel implements ActionListener {
 
         if (e.getActionCommand().equals("Add")){
             db.addToPlant();
+
         }else if (e.getActionCommand().equals("Edit")) {
             db.editPlants();
         }else if (e.getActionCommand().equals("View")) {
@@ -83,7 +84,13 @@ public class GUI extends JPanel implements ActionListener {
         }else if (e.getActionCommand().equals("Delete")) {
             db.removePlants();
         }else if (e.getActionCommand().equals("test"))  {
-            JPanel easd = new JPanel(new BorderLayout());
+            // Show input dialog
+            String userInput = JOptionPane.showInputDialog(GUI.this, "Enter text:");
+
+            // Check if the user pressed OK and entered text
+            if (userInput != null && !userInput.isEmpty()) {
+                JOptionPane.showMessageDialog(GUI.this, "You entered: " + userInput);
+            }
 
 
         }

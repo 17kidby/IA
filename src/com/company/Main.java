@@ -52,20 +52,33 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GUI myGUI = new GUI(1366,768);
 
+        //testing add function text thing
+        Add myadd = new Add(500, 500);
+
+
 
         frame.add(myGUI);
+
+       // frame.add(myadd);
         frame.pack();
         frame.setVisible(true);
         frame.setLocation(-7,-1);
 
-        JFrame frame2 = new JFrame("IA");
-        frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        GUI anotherONE = new GUI(1000,500);
+      // JFrame frame2 = new JFrame("IA");
+      // frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+      // GUI anotherONE = new GUI(1000,500);
 
-        frame2.add(anotherONE);
-        frame2.pack();
-        frame2.setVisible(true);
-        frame2.setLocation(-7,-1);
+      // frame2.add(anotherONE);
+      // frame2.pack();
+      // frame2.setVisible(true);
+      // frame2.setLocation(-7,-1);
+
+
+
+
+
+
+
 
         /*
         while (!option.equals("end")) {
