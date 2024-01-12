@@ -10,3 +10,4 @@ cyprus
 G5
 li
 
+lo

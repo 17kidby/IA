@@ -43,6 +43,12 @@ public class GUI extends JPanel implements ActionListener {
         button4.addActionListener(this);
         add(button5);
         button5.addActionListener(this);
+
+
+
+
+
+
 /*
         ImageIcon imageIcon = new ImageIcon("C:\\Users\\17kidby_m\\IdeaProjects\\IA\\src\\com\\company\\Screenshot 2023-11-28 113806 plus bordrs.png");
         Image image = imageIcon.getImage();
@@ -86,10 +92,13 @@ public class GUI extends JPanel implements ActionListener {
                 addLocation = JOptionPane.showInputDialog(GUI.this, "Enter Location on Grid: ");
                 addTime = JOptionPane.showInputDialog(GUI.this, "Enter Period of Flowering (write the months): ");
                 addColour = JOptionPane.showInputDialog(GUI.this, "Enter Main Colour of Plant: ");
-                confirm = JOptionPane.showConfirmDialog(GUI.this, "Confirm this is correct?");
-                System.out.println(confirm);
+                confirm = JOptionPane.showConfirmDialog(GUI.this, "Confirm this is correct? \nPlant: " + addName + "\nLocation: " + addLocation + " \nFlowering Time: " + addTime + " \nColour: " + addColour);
+
+                if (confirm == 0){
+                    db.addToPlant(addName, addLocation, addTime, addColour);
+                }
             }
-            db.addToPlant(addName, addLocation, addTime, addColour);
+
 
 
         }else if (e.getActionCommand().equals("Edit")) {
@@ -99,16 +108,14 @@ public class GUI extends JPanel implements ActionListener {
         }else if (e.getActionCommand().equals("Delete")) {
             db.removePlants();
         }else if (e.getActionCommand().equals("test"))  {
-            // Show input dialog
-            String userInput = JOptionPane.showInputDialog(GUI.this, "Enter text:");
 
-            // Check if the user pressed OK and entered text
-            if (userInput != null && !userInput.isEmpty()) {
-                JOptionPane.showMessageDialog(GUI.this, "You entered: " + userInput);
-            }
+            testPopUpWindow frejm = new testPopUpWindow(50,50);
+            //frejm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //frejm.setVisible(true);
 
 
         }
 
     }
+
 }
