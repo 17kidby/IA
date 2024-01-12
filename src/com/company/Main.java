@@ -64,6 +64,8 @@ public class Main {
         frame.setVisible(true);
         frame.setLocation(-7,-1);
 
+
+
       // JFrame frame2 = new JFrame("IA");
       // frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       // GUI anotherONE = new GUI(1000,500);

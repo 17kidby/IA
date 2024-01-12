@@ -96,20 +96,20 @@ public class dataBase {
 
     }
 
-    public void addToPlant(){
+    public void addToPlant(String Name, String Location, String Time, String Colours){
         Scanner user = new Scanner(System.in);
 
-        System.out.println("Name: ");
-        fh.appendLine(name, user.nextLine());
 
-        System.out.println("Location: ");
-        fh.appendLine(location, user.nextLine());
+        fh.appendLine(name, Name);
 
-        System.out.println("Period of flowering (write the months): ");
-        fh.appendLine(time, user.nextLine());
 
-        System.out.println("Main colour: ");
-        fh.appendLine(colours, user.nextLine());
+        fh.appendLine(location, Location);
+
+
+        fh.appendLine(time, Time);
+
+
+        fh.appendLine(colours, Colours);
 
 
         System.out.println("    ");

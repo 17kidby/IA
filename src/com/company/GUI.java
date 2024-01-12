@@ -75,7 +75,22 @@ public class GUI extends JPanel implements ActionListener {
         dataBase db = new dataBase("sabs.txt");
 
         if (e.getActionCommand().equals("Add")){
-            db.addToPlant();
+            int confirm = 1;
+            String addName;
+            String addLocation;
+            String addTime;
+            String addColour;
+
+            while (confirm == 1) {
+                addName = JOptionPane.showInputDialog(GUI.this, "Enter Name of Plant: ");
+                addLocation = JOptionPane.showInputDialog(GUI.this, "Enter Location on Grid: ");
+                addTime = JOptionPane.showInputDialog(GUI.this, "Enter Period of Flowering (write the months): ");
+                addColour = JOptionPane.showInputDialog(GUI.this, "Enter Main Colour of Plant: ");
+                confirm = JOptionPane.showConfirmDialog(GUI.this, "Confirm this is correct?");
+                System.out.println(confirm);
+            }
+            db.addToPlant(addName, addLocation, addTime, addColour);
+
 
         }else if (e.getActionCommand().equals("Edit")) {
             db.editPlants();
