@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.*;
 import java.io.File;
 import java.util.Scanner;
 
@@ -127,6 +128,19 @@ public class dataBase {
         }
         System.out.println("    ");
         System.out.println("    ");
+
+        JFrame frame2 = new JFrame("IA");
+        frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame2.setSize(1366,768);
+        frame2.setVisible(true);
+
+        JLabel label = new JLabel("Epik test message gordon ramsay was here");
+        label.setBounds(0, 500, 200, 2200);
+        JPanel labelPanel = new JPanel();
+        frame2.add(labelPanel);
+
+
+
     }
 
 

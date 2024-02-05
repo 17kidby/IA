@@ -11,3 +11,4 @@ G5
 li
 
 lo
+so deda

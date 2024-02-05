@@ -49,7 +49,7 @@ public class GUI extends JPanel implements ActionListener {
 
 
 
-/*
+
         ImageIcon imageIcon = new ImageIcon("C:\\Users\\17kidby_m\\IdeaProjects\\IA\\src\\com\\company\\Screenshot 2023-11-28 113806 plus bordrs.png");
         Image image = imageIcon.getImage();
 
@@ -63,8 +63,10 @@ public class GUI extends JPanel implements ActionListener {
         JPanel imagePanel = new JPanel();
         imagePanel.setLayout(null); // Set the layout manager to null for manual positioning
         label.setBounds(300, 100, newWidth, newHeight); // Set the position of the label manually
+
+
         imagePanel.add(label);
-*/
+
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(buttonsPanel, BorderLayout.NORTH);
         //mainPanel.add(imagePanel, BorderLayout.CENTER);

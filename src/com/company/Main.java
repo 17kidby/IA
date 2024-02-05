@@ -14,34 +14,6 @@ public class Main {
         // test the database works
         System.out.println("Database (type 'end' to end)");
 
-       // dataBase names = new dataBase("name.txt", 10);
-        //dataBase location = new dataBase("location.txt", 10);
-        //dataBase time = new dataBase("time.txt", 10);
-        //dataBase colours = new dataBase("colours.txt", 10);
-       // db.appendRecord("1.ABCDEFGH");
-       // db.appendRecord("2.ABCDEFGH");
-       // db.appendRecord("3.ABCDEFGH");
-       // db.appendRecord("4.ABCDEFGH");
-       // System.out.println(db.getRecord(2));	 // should be "3.ABCDEFGH"
-       // System.out.println(db.findRecord("EBCDEFGHIJ")); // false
-       // System.out.println(db.findRecord("2.ABCDEFGH")); // true
-       // System.out.println("count = " + db.getRecordCount()); // 4
-        //db.appendRecord("sans");
-        //db.appendRecord("jesus");
-
-        //FileHandler.appendLine("test.txt", "osadifj");
-        //System.out.println(FileHandler.countLines("test.txt"));
-        //System.out.println(FileHandler.readLine("test.txt", 0));
-        //System.out.println(FileHandler.readLine("test.txt", 1));
-        //System.out.println(FileHandler.readLine("test.txt", 2));
-        //System.out.println(" ");
-        //FileHandler.writeLineAt("test.txt", "qweqw", 1);
-        //FileHandler.writeLineAt("name.txt", "po", 2);
-        //System.out.println(FileHandler.countLines("test.txt"));
-        //System.out.println(" ");
-
-        //db.appendRecord("cheese");
-
 
         Scanner user = new Scanner(System.in);
         String option = "";
@@ -59,10 +31,7 @@ public class Main {
         frame.setLocation(-7,-1);
 
 
-        JFrame frame2 = new JFrame("IA");
-        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame2.setSize(250, 300);
-        frame2.setVisible(true);
+
 
 
 
