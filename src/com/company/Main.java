@@ -22,8 +22,7 @@ public class Main {
         //GUI TIME
         JFrame frame = new JFrame("IA");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GUI myGUI = new GUI(1366,768);
-
+        GUI myGUI = new GUI(1536,864);
         frame.add(myGUI);
 
         frame.pack();

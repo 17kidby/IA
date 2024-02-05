@@ -1,7 +1,8 @@
 package com.company;
 
 import javax.swing.*;
-import java.io.File;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.Scanner;
 
 public class dataBase {
@@ -13,6 +14,11 @@ public class dataBase {
     private String location = "location.txt";
     private String time = "time.txt";
     private String colours = "colours.txt";
+    private JPanel labelPanel = new JPanel();
+    JFrame frame2 = new JFrame("Plant Viewer");
+
+
+
 
     public dataBase(String filename) {
         this.filename = filename;
@@ -63,15 +69,23 @@ public class dataBase {
         Scanner user = new Scanner(System.in);
         int lineNum = fh.countLines(name);
         String[] data = new String[lineNum];
+        int yCorLoop = 120;
 
 
-        viewPlants();
-        System.out.println("Which line do you want to edit? ");
-        int input = user.nextInt();
+        String[] buttonList = new String[lineNum-1];
+
+        for (int i=0; i<lineNum; i++){
+            JButton button = new JButton("Line " + i);
+            button.setBounds(200, yCorLoop, 40, 20);
+            labelPanel.add(button);
+
+
+        }
+
 
         System.out.println("Which part of the line do you want to change? ");
         System.out.println("(1) Name   (2) Location   (3) Time   (4) Colours");
-        System.out.println(fh.readLine(name, input-1) + ", " + fh.readLine(location, input-1) + ", " + fh.readLine(time, input-1) + ", " + fh.readLine(colours, input-1));
+        //System.out.println(fh.readLine(name, input-1) + ", " + fh.readLine(location, input-1) + ", " + fh.readLine(time, input-1) + ", " + fh.readLine(colours, input-1));
         int inputTwo = user.nextInt();
 
 
@@ -79,21 +93,25 @@ public class dataBase {
 
 
 
-        if (inputTwo == 1){
-            fh.doTheEdit(name, input);
+       //if (inputTwo == 1){
+       //    fh.doTheEdit(name, input);
 
-        }else if (inputTwo == 2){
-            fh.doTheEdit(location, input);
+       //}else if (inputTwo == 2){
+       //    fh.doTheEdit(location, input);
 
-        }else if (inputTwo == 3) {
-            fh.doTheEdit(time, input);
+       //}else if (inputTwo == 3) {
+       //    fh.doTheEdit(time, input);
 
-        }else if (inputTwo == 4) {
-            fh.doTheEdit(colours, input);
+       //}else if (inputTwo == 4) {
+       //    fh.doTheEdit(colours, input);
 
-        }
+       //}
 
         System.out.println("    ");
+
+    }
+
+    public void actionPerformed(ActionEvent e) {
 
     }
 
@@ -116,29 +134,48 @@ public class dataBase {
         System.out.println("    ");
     }
 
-    public void viewPlants(){
-        System.out.println("List of plants: ");
+    public void viewPlants(String viewingTitle){
         int lineNum = fh.countLines(name);
-        for (int i=0; i<lineNum; i++){
-            System.out.print((i+1) + ") " + fh.readLine(name, i) + ", ");
-            System.out.print(fh.readLine(location, i) + ", ");
-            System.out.print(fh.readLine(time, i) + ", ");
-            System.out.print(fh.readLine(colours, i));
-            System.out.println("");
-        }
-        System.out.println("    ");
-        System.out.println("    ");
 
-        JFrame frame2 = new JFrame("IA");
+        //making new window pop out
         frame2.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame2.setSize(1366,768);
+        frame2.setSize(1536,864);
         frame2.setVisible(true);
 
-        JLabel label = new JLabel("Epik test message gordon ramsay was here");
-        label.setBounds(0, 500, 200, 2200);
-        JPanel labelPanel = new JPanel();
+        //list title
+        JLabel label = new JLabel(viewingTitle);
+        label.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
+        label.setBounds(180, 0, 600, 100);
+
+        //creating loop to generate list of plants on screen
+        labelPanel.setLayout(null);
+        int yCorLoop=120;
+        for (int i=0; i<lineNum; i++){
+            JLabel newLine = new JLabel((i+1) + ") " + fh.readLine(name, i) + ", " + fh.readLine(location, i) + ", " + fh.readLine(time, i) + ", " + fh.readLine(colours, i));
+            newLine.setFont(new Font("Comic Sans MC", Font.PLAIN, 20));
+            newLine.setBounds(175, yCorLoop, 1536, 40);
+            labelPanel.add(newLine);
+            yCorLoop =yCorLoop+40;
+        }
+
+        //adding map
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\44739\\IdeaProjects\\IA\\src\\com\\company\\Screenshot 2023-11-28 113806 plus bordrs.jpg");
+        Image image = imageIcon.getImage();
+
+        // Resizing the map again
+        int newWidth = 432;
+        int newHeight = 864;
+        Image resizedImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JLabel imageLabel = new JLabel(resizedIcon);
+        imageLabel.setBounds(986, -100, newWidth, newHeight); // Set the position of the label manually
+
+
+        labelPanel.add(imageLabel);
+        labelPanel.add(label);
         frame2.add(labelPanel);
 
+        //return frame2;
 
 
     }
@@ -148,7 +185,7 @@ public class dataBase {
         Scanner user = new Scanner(System.in);
         int lineNum = fh.countLines(name);
 
-        viewPlants();
+        viewPlants("");
         System.out.println("Which line do you want to delete? ");
         int start = user.nextInt();
 
